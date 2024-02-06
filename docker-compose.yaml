@@ -9,19 +9,13 @@ services:
     command: http atlantis:4141
   
   atlantis:
-    build:
-      context: .
+    image: ghcr.io/runatlantis/atlantis:{latest version}
     environment:
     - ATLANTIS_ATLANTIS_URL
-    - ATLANTIS_GH_APP_ID
-    - ATLANTIS_GH_APP_KEY_FILE
-    - ATLANTIS_WRITE_GIT_CREDS
+    - ATLANTIS_GH_USER
+    - ATLANTIS_GH_TOKEN
     - ATLANTIS_GH_WEBHOOK_SECRET
     - ATLANTIS_REPO_ALLOWLIST
     - ATLANTIS_REPO_CONFIG
-    - AWS_ACCESS_KEY_ID
-    - AWS_SECRET_ACCESS_KEY
-    - AWS_SESSION_TOKEN
-    - TERRAFORM_CLOUD_TOKEN
     volumes:
       - $PWD/config/:/config/
